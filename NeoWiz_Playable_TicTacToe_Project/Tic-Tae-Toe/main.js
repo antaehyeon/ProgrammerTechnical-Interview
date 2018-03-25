@@ -1,8 +1,7 @@
 var board = new Array(9);
 
 function init() {
-    var down = "mousedown";
-    var up = "mouseup";
+    var down = "mousedown"; var up = "mouseup";
 
     if ('createTouch' in document) {
         down = "touchstart"; up = "touchend";
@@ -13,27 +12,27 @@ function init() {
     var squares = document.getElementsByTagName("td");
     for (var s = 0; s < squares.length; s++) {
         squares[s].addEventListener(down, function(evt) {
-            squareSelected(evt, getCurrentPlayers());
+            squareSelected(evt, getCurrentPlayer());
             }, false);
     }
 
     createBoard();
-    setInitalPlayer();
+    setInitialPlayer();
 }
 
 function createBoard() {
     if(window.localStorage && localStorage.getItem('tic-tac-toe-board')) {
         board = (JSON.parse(localStorage.getItem('tic-tac-toe-board')));
         for (var i = 0; i < board.length; i++) {
-            if (board[i] != " ") {
+            if (board[i] !== " ") {
                 fillSquareWithMarker(document.getElementById(i), board[i]);
             }
         }
     }
     else {
         for (var i = 0; i < board.length; i++) {
-            board[i] = " ";
-            document.getElementById(i).innerHTML = " ";
+            board[i] = "";
+            document.getElementById(i).innerHTML = "";
         }
     }
 }
@@ -73,7 +72,7 @@ function declareWinner() {
 }
 
 function weHaveAWinner(a, b, c) {
-    if ((board[a] === board[b]) && (board[b] === board[c]) && (board[a] != "" || board[b] != "" || board[c] != "")) {
+    if ((board[a] === board[b]) && (board[b] === board[c]) && (board[a] !== "" || board[b] !== "" || board[c] !== "")) {
         setTimeout(declareWinner(), 100);
         return true;
     } else {
@@ -117,7 +116,7 @@ function getCurrentPlayer() {
     return document.querySelector(".current-player").id;
 }
 
-function setInitalPlayer() {
+function setInitialPlayer() {
     var playerX = document.getElementById("X");
     var playerO = document.getElementById("O");
     playerX.className = "";

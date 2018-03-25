@@ -20,6 +20,14 @@ td {
     -webkit-border-radius: 10px;
 }
 
+#players {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px 10px 10px 10px;
+    width: 511px;
+    text-align: left;
+}
+
 #players > div {
     display: inline-block;
     padding-right: 25px;
@@ -41,7 +49,7 @@ td {
 }
 
 .X-marker:before {
-    content: 'X';
+    content: "X";
 }
 
 .O-marker {
@@ -49,5 +57,5 @@ td {
 }
 
 .O-marker:before {
-    content: 'O';
+    content: "O";
 }
