@@ -25,4 +25,4 @@
 
 # 면접준비
 
-1. 네오위즈
+1. [네오위즈](https://github.com/antaehyeon/ProgrammerTechnical-Interview/blob/master/neowiz.md)
